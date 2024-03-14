@@ -7,7 +7,7 @@ Operation:
 
 2. Start the "ffmpegURLStreams" script in an open terminal. (chmod 755 for execution)
    
-3. Open another terminal and connect the fl2k with the output url stream-> "fl2k_tcp -p 25000 -s 8192000"
+3. Open another terminal and connect the fl2k with the output TCP stream-> "fl2k_tcp -p 25000 -s 8192000"
 
 
 Connect any receiver to the red output channel of your fl2k. Please protect your device by using DC blocker and filter elements. 
