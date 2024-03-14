@@ -3,10 +3,11 @@ Needs pre-installed osmocom fl2k drives and ffmpeg.
 Info here-> https://osmocom.org/projects/osmo-fl2k/wiki and here-> https://ffmpeg.org/
 
 Operation:
-1.Open GnuRadio with the "am_xmit_multi_noGUI_fl2kUDP.grc"
+1. Open the GnuRadioCompanion with the "am_xmit_multi_noGUI_fl2kUDP.grc" and start execution.
 
 2. Start the "ffmpegURLStreams" script in an open terminal.
-3. Open another Terminal and connect the fl2k with the output url stream-> "fl2k_tcp -p 25000 -s 8192000"
+   
+3. Open another terminal and connect the fl2k with the output url stream-> "fl2k_tcp -p 25000 -s 8192000"
 
 
 Connect any receiver to the red output channel of your fl2k. Please protect your device by using DC blocker and filter elements. 
@@ -25,4 +26,4 @@ Goal:
 Improvments:
 Channel adaptation to your personal taste.
 Level adjustments
-Put execution in one script.
+Commit execution into a single script.
