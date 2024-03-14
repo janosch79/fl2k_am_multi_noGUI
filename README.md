@@ -5,7 +5,7 @@ Info here-> https://osmocom.org/projects/osmo-fl2k/wiki and here-> https://ffmpe
 Operation:
 1. Open the GnuRadioCompanion with the "am_xmit_multi_noGUI_fl2kUDP.grc" and start execution.
 
-2. Start the "ffmpegURLStreams" script in an open terminal.
+2. Start the "ffmpegURLStreams" script in an open terminal. (chmod 755 for execution)
    
 3. Open another terminal and connect the fl2k with the output url stream-> "fl2k_tcp -p 25000 -s 8192000"
 
