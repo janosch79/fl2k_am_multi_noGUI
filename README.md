@@ -19,7 +19,7 @@ Enjoy several AM channels like in the good old days with your AM Radio receivers
 
 Goal:
 -lower CPU load by resigning any form of GUI elements in the gnu radio companion.
--content feed by using web life streams adaped by ffmpg submitted netcat via UDP 
+-content feed by using web life streams adaped by ffmpeg submitted netcat via UDP 
 -motivated by this thread-> https://radio-bastler.de/forum/showthread.php?tid=12946&page=11
 
 
