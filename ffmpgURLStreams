@@ -1,0 +1,13 @@
+ffmpeg -i https://st01.sslstream.dlf.de/dlf/01/low/opus/stream.opus  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.8" - | nc -u 127.0.0.1 2601 &
+ffmpeg -i http://mdr-284340-0.cast.mdr.de/mdr/284340/0/mp3/low/stream.mp3  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.7" - | nc -u 127.0.0.1 2602 &
+ffmpeg -i http://icecast.ndr.de/ndr/ndrinfo/hamburg/mp3/128/stream.mp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.6" - | nc -u 127.0.0.1 2603 &
+ffmpeg -i http://dispatcher.rndfnk.com/hr/hrinfo/live/mp3/128/stream.mp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.7" - | nc -u 127.0.0.1 2604 &
+ffmpeg -i https://radio.talkradio.co.uk/stream  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2605 &
+ffmpeg -i https://radio.talksport.com/stream  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2606 &
+ffmpeg -i http://listen.livestreamingservice.com/181-70s_64k.aac  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2607 &
+ffmpeg -i https://dispatcher.rndfnk.com/br/br24/live/aac/low  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2608 &
+ffmpeg -i http://inforadio.de/livemp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2609 &
+ffmpeg -i http://listen.livestreamingservice.com/181-goodtime_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2610 &
+ffmpeg -i http://listen.livestreamingservice.com/181-greatoldies_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2611 &
+ffmpeg -i http://listen.livestreamingservice.com/181-jazzmix_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2612 &
+ffmpeg -i http://listen.livestreamingservice.com/181-kickincountry_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2613 &
