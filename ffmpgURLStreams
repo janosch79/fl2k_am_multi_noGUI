@@ -1,13 +1,34 @@
-ffmpeg -i https://st01.sslstream.dlf.de/dlf/01/low/opus/stream.opus  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.8" - | nc -u 127.0.0.1 2601 &
-ffmpeg -i http://mdr-284340-0.cast.mdr.de/mdr/284340/0/mp3/low/stream.mp3  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.7" - | nc -u 127.0.0.1 2602 &
-ffmpeg -i http://icecast.ndr.de/ndr/ndrinfo/hamburg/mp3/128/stream.mp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.6" - | nc -u 127.0.0.1 2603 &
-ffmpeg -i http://dispatcher.rndfnk.com/hr/hrinfo/live/mp3/128/stream.mp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.7" - | nc -u 127.0.0.1 2604 &
-ffmpeg -i https://radio.talkradio.co.uk/stream  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2605 &
-ffmpeg -i https://radio.talksport.com/stream  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2606 &
-ffmpeg -i http://listen.livestreamingservice.com/181-70s_64k.aac  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2607 &
-ffmpeg -i https://dispatcher.rndfnk.com/br/br24/live/aac/low  -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2608 &
-ffmpeg -i http://inforadio.de/livemp3   -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2609 &
-ffmpeg -i http://listen.livestreamingservice.com/181-goodtime_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2610 &
-ffmpeg -i http://listen.livestreamingservice.com/181-greatoldies_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2611 &
-ffmpeg -i http://listen.livestreamingservice.com/181-jazzmix_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2612 &
-ffmpeg -i http://listen.livestreamingservice.com/181-kickincountry_64k.aac -ar 22000 -ac 1  -f f32le -filter:a "volume=0.5" - | nc -u 127.0.0.1 2613 &
+#!/bin/bash
+
+
+
+audio_rate=22000
+audio_channels=1
+volume=(0.8 0.7 0.6 0.7 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5)
+localhost_address="127.0.0.1"
+url1="https://st01.sslstream.dlf.de/dlf/01/low/opus/stream.opus"
+url2="http://mdr-284340-0.cast.mdr.de/mdr/284340/0/mp3/low/stream.mp3"
+url3="http://icecast.ndr.de/ndr/ndrinfo/hamburg/mp3/128/stream.mp3"
+url4="http://dispatcher.rndfnk.com/hr/hrinfo/live/mp3/128/stream.mp3"
+url5="https://radio.talkradio.co.uk/stream"
+url6="https://radio.talksport.com/stream"
+url7="http://listen.livestreamingservice.com/181-70s_64k.aac"
+url8="https://dispatcher.rndfnk.com/br/br24/live/aac/low"
+url9="http://inforadio.de/livemp3"
+url10="http://listen.livestreamingservice.com/181-goodtime_64k.aac"
+url11="http://listen.livestreamingservice.com/181-greatoldies_64k.aac"
+url12="http://listen.livestreamingservice.com/181-jazzmix_64k.aac"
+url13="http://listen.livestreamingservice.com/181-kickincountry_64k.aac"
+url14="https://liveradio.swr.de/sw282p3/swraktuell/"
+
+urls=($url1 $url2 $url3 $url4 $url5 $url6 $url7 $url8 $url9 $url10 $url11 $url12 $url13 $url14)
+
+for i in "${!urls[@]}"; do
+    ffmpeg -i "${urls[$i]}" -ar $audio_rate -ac $audio_channels -f f32le -filter:a "volume=${volume[$i]}" - | nc -u $localhost_address $((2601 + $i)) &
+done
+
+
+# Delayed call to fl2k_tcp after the ffmpeg stremas have set up...
+#sleep 3
+#fl2k_tcp -p 25000 -s 8192000 &
+
